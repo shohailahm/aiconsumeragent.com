@@ -9,32 +9,37 @@
   }
   
   body {
-    @apply text-wa-text-primary font-sans antialiased bg-white;
+    @apply text-wa-text-primary dark:text-white font-sans antialiased bg-white dark:bg-wa-dark-bg;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-wa-teal hover:bg-opacity-90 text-white font-semibold py-3 px-8 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-md flex items-center justify-center gap-2;
+    @apply bg-wa-teal text-white font-black py-4 px-10 rounded-2xl transition-all duration-300 transform hover:scale-[1.03] active:scale-[0.98] shadow-2xl flex items-center justify-center gap-2;
+  }
+
+  .btn-primary:hover {
+    @apply bg-wa-teal-dark;
   }
   
   .glass-card {
-    @apply bg-white bg-opacity-80 backdrop-blur-md border border-white border-opacity-20 rounded-2xl shadow-xl;
+    @apply bg-white/80 dark:bg-wa-panel/80 backdrop-blur-xl border border-white/20 dark:border-white/5 rounded-[32px] shadow-2xl;
   }
 
   .nav-link {
-    @apply text-wa-text-secondary hover:text-wa-teal transition-colors duration-200 font-medium;
+    @apply text-wa-text-secondary dark:text-wa-text-muted hover:text-wa-teal dark:hover:text-wa-teal transition-all duration-300 font-black text-xs uppercase tracking-widest;
   }
 }
 
 .animate-reveal {
-  animation: fade-in-up 0.6s ease-out forwards;
+  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+/* Base fade-in-up keyframes (kept for precision control) */
 @keyframes fade-in-up {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(32px);
   }
   to {
     opacity: 1;
