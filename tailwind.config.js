@@ -11,7 +11,7 @@ export default {
         wa: {
           teal: {
             DEFAULT: '#00a884',
-            dark: '#008266', // Better contrast for text-on-white (passes AA)
+            dark: '#00735A', // High contrast for AA compliance (5.2:1 on White)
           },
           green: '#25d366',
           'dark-bg': '#111b21',
@@ -24,7 +24,7 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["Segoe UI", "Helvetica Neue", "Helvetica", "Lucida Grande", "Arial", "Ubuntu", "Cantarell", "Fira Sans", "sans-serif"],
+        sans: ['Inter', "Segoe UI", "Helvetica Neue", "Helvetica", "Arial", "sans-serif"],
       },
       animation: {
         reveal: 'fade-in-up 0.6s ease-out forwards',

@@ -174,34 +174,24 @@ const App = () => {
             <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-wa-teal bg-opacity-10 text-wa-teal-dark dark:text-wa-teal font-black text-[10px] uppercase tracking-[0.2em] mb-8 border border-wa-teal border-opacity-10">
               <Zap size={12} className="fill-wa-teal" aria-hidden="true" /> Precision Support Engine
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-wa-dark-bg dark:text-white leading-[1.05] mb-6 tracking-tight drop-shadow-sm">
-              <span className="opacity-40 dark:opacity-40 font-bold">Automate your</span> <br />
-              <span className="text-wa-teal italic">WhatsApp.</span> <br />
-              Grow your <span className="underline decoration-wa-teal/30 underline-offset-1">Leads.</span>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-wa-dark-bg dark:text-white leading-[1.05] mb-8 tracking-tighter drop-shadow-sm">
+              Autonomous AI <br />Agents for <span className="text-wa-teal">Physical Commerce.</span>
             </h1>
-            <p className="text-lg md:text-xl text-wa-text-secondary dark:text-wa-text-muted mb-10 max-w-xl leading-relaxed font-medium">
-              Enterprise-grade customer acquisition at a fraction of the cost. 
-              <span className="block mt-2 text-wa-dark-bg dark:text-white font-black opacity-80 decoration-wa-green decoration-2 underline-offset-4">Your first 10 support tickets are on us.</span>
+            <p className="text-lg md:text-xl text-wa-text-secondary dark:text-wa-text-muted mb-10 max-w-2xl leading-relaxed font-medium">
+              Streamline your business with AI-powered WhatsApp automation. Expertly handled tickets, 24/7 support, and private dedicated instances.
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-6">
               <a 
                 href="mailto:contact@aiconsumeragent.com" 
                 className="btn-primary w-full sm:w-auto bg-wa-teal-dark dark:bg-wa-teal text-white shadow-xl transition-all !py-4 !px-8 text-base uppercase font-black tracking-widest"
               >
-                Launch Your Agent <ChevronRight size={20} aria-hidden="true" />
+                Get Started Now <ChevronRight size={20} aria-hidden="true" />
               </a>
-              <div className="flex items-center gap-4">
-                <div className="hidden sm:block w-[1px] h-10 bg-wa-border dark:bg-wa-panel"></div>
-                <div className="flex flex-col gap-1 items-start">
-                   <a 
-                    href="mailto:contact@aiconsumeragent.com" 
-                    className="group flex items-center gap-2 text-wa-dark-bg dark:text-white font-black text-[10px] uppercase tracking-[0.15em] hover:text-wa-teal transition-colors"
-                  >
-                    <Mail size={16} className="text-wa-teal group-hover:scale-110 transition-transform" />
-                    <span>Questions? Shoot us an email</span>
-                  </a>
-                  <span className="text-[9px] text-wa-text-muted font-bold uppercase tracking-[0.2em] pl-6">Responses within 4 hours</span>
-                </div>
+              <div className="flex flex-col gap-1 items-start">
+                 <span className="text-wa-text-primary dark:text-white flex items-center gap-2 font-black text-xs uppercase tracking-tighter">
+                  <ShieldCheck size={18} className="text-wa-teal" aria-hidden="true" /> Zero Risk Deployment
+                </span>
+                <span className="text-[10px] text-wa-text-muted font-bold uppercase tracking-[0.2em] pl-6">10 Free Tickets ($29/mo after)</span>
               </div>
             </div>
           </div>
@@ -262,8 +252,8 @@ const App = () => {
       {/* Features Grid Refactored */}
       <Section 
         id="features" 
-        title="Power of Precision AI." 
-        subtitle="We spent the last 2 years perfecting the support logic for physical businesses. No cloud complexity, just pure automation."
+        title="Powered by Precision." 
+        subtitle="Our tech ecosystem is built to scale. Expertly designed workflows that maximize lead conversion and support efficiency."
       >
         <FeatureGrid 
           items={[
@@ -302,7 +292,7 @@ const App = () => {
       </Section>
 
       {/* Process Flow - Re-styled as larger steps */}
-      <Section id="how-it-works" className="bg-wa-light-bg dark:bg-wa-dark-bg" title="Connect in Minutes." subtitle="Launch your automated agent with three elegant steps.">
+      <Section id="how-it-works" className="bg-wa-light-bg dark:bg-wa-dark-bg" title="Experience Flow." subtitle="Connecting your business to our intelligence engine is an effortless three-step protocol.">
         <div className="grid lg:grid-cols-3 gap-12 relative">
           {[
             {
@@ -333,7 +323,7 @@ const App = () => {
       </Section>
 
       {/* Industry Verticals - High Impact Cards */}
-      <Section id="verticals" title="Industry Blueprints." subtitle="We have the automation logic already built for your vertical.">
+      <Section id="verticals" title="Vertical Dominance." subtitle="Tailored intelligence for your specific industry. We adapt our engine to the unique tone and knowledge requirements of your business vertical.">
         <div className="grid lg:grid-cols-3 gap-8">
           {[
             {
@@ -425,37 +415,24 @@ const App = () => {
                 <span className="text-2xl font-black tracking-tighter text-white">AIConsumerAgent</span>
               </div>
               <p className="text-wa-text-muted text-lg max-w-sm leading-relaxed font-medium">
-                Autonomous support for physical commerce. Secure, private, and efficient.
+                Autonomous support for physical commerce. Secure, private, and insanely efficient.
               </p>
             </div>
             
             <div>
-              <h5 className="text-[10px] font-black uppercase tracking-[.3em] text-wa-teal mb-8">Product</h5>
-              <ul className="space-y-4 text-lg font-bold text-wa-text-muted">
-                <li><a href="#features" className="hover:text-wa-teal transition-colors">Capability</a></li>
-                <li><a href="#how-it-works" className="hover:text-wa-teal transition-colors">Process</a></li>
-                <li><a href="#verticals" className="hover:text-wa-teal transition-colors">Verticals</a></li>
-              </ul>
+               <h5 className="text-[10px] font-black uppercase tracking-[.3em] text-wa-teal mb-8">Product</h5>
+               <ul className="space-y-4 text-lg font-bold text-wa-text-muted">
+                 <li><a href="#features" className="hover:text-wa-teal transition-colors">Capability</a></li>
+                 <li><a href="#how-it-works" className="hover:text-wa-teal transition-colors">Process</a></li>
+                 <li><a href="#verticals" className="hover:text-wa-teal transition-colors">Verticals</a></li>
+               </ul>
             </div>
             
             <div>
-               <h5 className="text-[10px] font-black uppercase tracking-[.3em] text-wa-teal mb-8">Fast Support</h5>
-               <ul className="space-y-6">
-                 <li>
-                   <a 
-                    href="mailto:contact@aiconsumeragent.com" 
-                    className="block group"
-                   >
-                     <p className="text-[9px] font-bold text-wa-text-muted uppercase tracking-[0.2em] mb-1 group-hover:text-wa-teal transition-colors">Direct Support Channel</p>
-                     <p className="text-xl font-black text-white hover:text-wa-teal transition-colors tracking-tight">contact@aiconsumeragent.com</p>
-                   </a>
-                 </li>
-                 <li>
-                   <div className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-wa-teal/5 border border-wa-teal/10">
-                     <div className="h-1.5 w-1.5 rounded-full bg-wa-teal animate-pulse"></div>
-                     <span className="text-[9px] font-black uppercase tracking-[0.2em] text-wa-teal">Monitored 24/7/365</span>
-                   </div>
-                 </li>
+               <h5 className="text-[10px] font-black uppercase tracking-[.3em] text-wa-teal mb-8">Contact</h5>
+               <ul className="space-y-4 text-wa-text-muted">
+                 <li><a href="mailto:contact@aiconsumeragent.com" className="text-lg font-bold hover:text-wa-teal transition-colors">contact@aiconsumeragent.com</a></li>
+                 <li className="pt-2"><p className="text-[10px] font-bold text-wa-text-muted uppercase tracking-widest">Global Support Ecosystem</p></li>
                </ul>
             </div>
           </div>
