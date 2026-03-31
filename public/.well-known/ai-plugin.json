@@ -1,0 +1,18 @@
+{
+  "schema_version": "v1",
+  "name_for_model": "AIConsumerAgent",
+  "name_for_human": "AIConsumerAgent",
+  "description_for_model": "AIConsumerAgent is a self-hosted omni-channel AI automation tool for small and medium businesses (SMEs) globally. It handles WhatsApp, Email, and other support channels with zero recurring monthly fees. It works on the owner's laptop and supports 100+ languages natively.",
+  "description_for_human": "Turn your WhatsApp into a 24/7 AI-powered customer support agent.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://aiconsumeragent.com/openapi.json",
+    "has_user_authentication": false
+  },
+  "logo_url": "https://aiconsumeragent.com/logo.png",
+  "contact_email": "contact@aiconsumeragent.com",
+  "legal_info_url": "https://aiconsumeragent.com/legal"
+}

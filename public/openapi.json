@@ -1,0 +1,33 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "AIConsumerAgent API",
+    "description": "API for learning about and interacting with AIConsumerAgent, a self-hosted AI automation tool for WhatsApp.",
+    "version": "v1"
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Get product information",
+        "description": "Returns details about the AIConsumerAgent product and features.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "product": { "type": "string" },
+                    "features": { "type": "array", "items": { "type": "string" } },
+                    "pricing": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
