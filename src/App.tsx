@@ -190,11 +190,18 @@ const App = () => {
               >
                 Launch Your Agent <ChevronRight size={20} aria-hidden="true" />
               </a>
-              <div className="flex flex-col gap-1 items-start">
-                 <span className="text-wa-text-primary dark:text-white flex items-center gap-2 font-black text-xs uppercase tracking-tighter">
-                  <ShieldCheck size={18} className="text-wa-teal" aria-hidden="true" /> Zero Risk Deployment
-                </span>
-                <span className="text-[10px] text-wa-text-muted font-bold uppercase tracking-[0.2em] pl-6">10 Free Tickets ($29/mo after)</span>
+              <div className="flex items-center gap-4">
+                <div className="hidden sm:block w-[1px] h-10 bg-wa-border dark:bg-wa-panel"></div>
+                <div className="flex flex-col gap-1 items-start">
+                   <a 
+                    href="mailto:contact@aiconsumeragent.com" 
+                    className="group flex items-center gap-2 text-wa-dark-bg dark:text-white font-black text-[10px] uppercase tracking-[0.15em] hover:text-wa-teal transition-colors"
+                  >
+                    <Mail size={16} className="text-wa-teal group-hover:scale-110 transition-transform" />
+                    <span>Questions? Shoot us an email</span>
+                  </a>
+                  <span className="text-[9px] text-wa-text-muted font-bold uppercase tracking-[0.2em] pl-6">Responses within 4 hours</span>
+                </div>
               </div>
             </div>
           </div>
@@ -432,9 +439,23 @@ const App = () => {
             </div>
             
             <div>
-               <h5 className="text-[10px] font-black uppercase tracking-[.3em] text-wa-teal mb-8">Contact</h5>
-               <ul className="space-y-4 text-wa-text-muted">
-                 <li><a href="mailto:contact@aiconsumeragent.com" className="text-lg font-bold hover:text-wa-teal transition-colors">contact@aiconsumeragent.com</a></li>
+               <h5 className="text-[10px] font-black uppercase tracking-[.3em] text-wa-teal mb-8">Fast Support</h5>
+               <ul className="space-y-6">
+                 <li>
+                   <a 
+                    href="mailto:contact@aiconsumeragent.com" 
+                    className="block group"
+                   >
+                     <p className="text-[9px] font-bold text-wa-text-muted uppercase tracking-[0.2em] mb-1 group-hover:text-wa-teal transition-colors">Direct Support Channel</p>
+                     <p className="text-xl font-black text-white hover:text-wa-teal transition-colors tracking-tight">contact@aiconsumeragent.com</p>
+                   </a>
+                 </li>
+                 <li>
+                   <div className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-wa-teal/5 border border-wa-teal/10">
+                     <div className="h-1.5 w-1.5 rounded-full bg-wa-teal animate-pulse"></div>
+                     <span className="text-[9px] font-black uppercase tracking-[0.2em] text-wa-teal">Monitored 24/7/365</span>
+                   </div>
+                 </li>
                </ul>
             </div>
           </div>
