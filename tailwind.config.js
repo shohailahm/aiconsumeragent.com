@@ -22,6 +22,13 @@ export default {
           'text-secondary': '#667781',
           'text-muted': '#8696a0',
         },
+        indigo: {
+          500: '#6366f1',
+          600: '#4f46e5',
+        },
+        blue: {
+          500: '#3b82f6',
+        }
       },
       fontFamily: {
         sans: ['Inter', "Segoe UI", "Helvetica Neue", "Helvetica", "Arial", "sans-serif"],

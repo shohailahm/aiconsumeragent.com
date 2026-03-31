@@ -35,6 +35,17 @@
   animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+.status-pulse {
+  box-shadow: 0 0 0 0 rgba(0, 168, 132, 0.4);
+  animation: pulse-teal 2s infinite;
+}
+
+@keyframes pulse-teal {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 168, 132, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 168, 132, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 168, 132, 0); }
+}
+
 /* Base fade-in-up keyframes (kept for precision control) */
 @keyframes fade-in-up {
   from {
