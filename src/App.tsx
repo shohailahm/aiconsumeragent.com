@@ -19,6 +19,7 @@ import {
   Moon,
   Sun
 } from 'lucide-react'
+import content from './content.json'
 
 // Performance: Isolate Navbar re-renders due to scroll
 const Navbar = memo(() => {
@@ -68,9 +69,9 @@ const Navbar = memo(() => {
         </div>
 
         <div className="hidden md:flex items-center gap-8">
-          <a href="#features" className="nav-link text-sm uppercase tracking-widest font-bold dark:text-wa-text-muted hover:dark:text-wa-teal ">Features</a>
-          <a href="#how-it-works" className="nav-link text-sm uppercase tracking-widest font-bold dark:text-wa-text-muted hover:dark:text-wa-teal ">Process</a>
-          <a href="#verticals" className="nav-link text-sm uppercase tracking-widest font-bold dark:text-wa-text-muted hover:dark:text-wa-teal ">Verticals</a>
+          <a href="#features" className="nav-link text-sm uppercase tracking-widest font-bold dark:text-wa-text-muted hover:dark:text-wa-teal">Features</a>
+          <a href="#how-it-works" className="nav-link text-sm uppercase tracking-widest font-bold dark:text-wa-text-muted hover:dark:text-wa-teal">Easy Setup</a>
+          <a href="#verticals" className="nav-link text-sm uppercase tracking-widest font-bold dark:text-wa-text-muted hover:dark:text-wa-teal">Your Industry</a>
           
           <button 
             onClick={toggleDarkMode}
@@ -107,11 +108,11 @@ const Navbar = memo(() => {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-white dark:bg-wa-panel border-t border-wa-border dark:border-wa-dark-bg absolute top-full left-0 right-0 shadow-2xl py-8 px-6 flex flex-col gap-6 animate-reveal">
-          <a href="#features" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold dark:text-white">Features</a>
+          <a href="#features" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold dark:text-white">What it Does</a>
           <a href="#how-it-works" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold dark:text-white">How it Works</a>
-          <a href="#verticals" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold dark:text-white">Verticals</a>
-          <a href="#pricing" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold text-wa-teal dark:text-wa-teal">Pricing</a>
-          <a href="mailto:contact@aiconsumeragent.com" className="btn-primary mt-6 !py-4 text-center">Contact Us</a>
+          <a href="#verticals" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold dark:text-white">For Your Industry</a>
+          <a href="#pricing" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold text-wa-teal dark:text-wa-teal">Free Trial</a>
+          <a href="mailto:contact@aiconsumeragent.com" className="btn-primary mt-6 !py-4 text-center">Get Free Access</a>
         </div>
       )}
     </nav>
@@ -138,13 +139,14 @@ const Section = ({ id, children, className = "", title, subtitle }: { id?: strin
 )
 
 const FeatureGrid = ({ items }: { items: any[] }) => {
+  const icons = [<Lock />, <Mail />, <Zap />, <Smartphone />, <CheckCircle2 />, <Play />];
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-12">
       {items.map((feature, i) => (
         <div key={i} className="group relative animate-reveal p-8 -m-8 rounded-[32px] hover:bg-wa-teal/5 transition-all duration-500 hover:-translate-y-2 cursor-default" style={{ animationDelay: `${i * 0.1}s` }}>
           <div className="mb-8 relative flex items-center justify-between">
             <div className="w-16 h-16 bg-wa-teal bg-opacity-10 text-wa-teal dark:bg-wa-teal dark:bg-opacity-20 rounded-[22px] flex items-center justify-center group-hover:bg-wa-teal group-hover:text-white transition-all duration-700 transform group-hover:rotate-[15deg] group-hover:scale-110 shadow-sm ring-1 ring-wa-teal/10">
-              {React.cloneElement(feature.icon as React.ReactElement, { size: 32, strokeWidth: 2.5 } as any)}
+              {React.cloneElement(icons[i] as React.ReactElement, { size: 32, strokeWidth: 2.5 } as any)}
             </div>
             <span className="text-5xl font-black text-wa-teal opacity-5 pointer-events-none select-none italic group-hover:opacity-20 transition-opacity">
               0{i + 1}
@@ -174,27 +176,27 @@ const App = () => {
           <div className="animate-reveal max-w-4xl">
             <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-wa-teal bg-opacity-10 text-wa-teal-dark dark:text-wa-teal font-black text-[10px] uppercase tracking-[0.2em] mb-8 border border-wa-teal border-opacity-10 ring-1 ring-wa-teal/20 relative">
               <span className="status-pulse h-2 w-2 rounded-full bg-wa-teal" aria-hidden="true"></span>
-              Precision Support Engine
+              {content.hero.badge}
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-wa-dark-bg dark:text-white leading-[1.05] mb-10 tracking-tight drop-shadow-sm">
-              Autonomous AI Agents for <br />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-wa-teal to-[#14cda6] inline-block py-2 -my-2">Physical Commerce.</span>
+              {content.hero.title} <br />
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-wa-teal to-[#14cda6] inline-block py-2 -my-2">{content.hero.titleAccent}</span>
             </h1>
             <p className="text-lg md:text-2xl text-wa-text-secondary dark:text-wa-text-muted mb-12 max-w-2xl leading-relaxed font-medium">
-              Streamline your business with AI-powered WhatsApp automation. Expertly handled tickets, 24/7 support, and private dedicated instances.
+              {content.hero.description}
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-6">
               <a 
                 href="mailto:contact@aiconsumeragent.com" 
                 className="btn-primary w-full sm:w-auto bg-wa-teal-dark dark:bg-wa-teal text-white shadow-xl transition-all !py-4 !px-8 text-base uppercase font-black tracking-widest"
               >
-                Get Started Now <ChevronRight size={20} aria-hidden="true" />
+                {content.hero.cta} <ChevronRight size={20} aria-hidden="true" />
               </a>
               <div className="flex flex-col gap-2 items-start pl-2">
                  <span className="text-wa-text-primary dark:text-white flex items-center gap-2 font-black text-sm uppercase tracking-tight">
-                  <ShieldCheck size={20} className="text-wa-teal" aria-hidden="true" /> Zero Risk Deployment
+                  <ShieldCheck size={20} className="text-wa-teal" aria-hidden="true" /> {content.hero.trustBadge}
                 </span>
-                <span className="text-xs text-wa-text-muted font-bold uppercase tracking-[0.1em]">10 Free Tickets ($29/mo after)</span>
+                <span className="text-xs text-wa-text-muted font-bold uppercase tracking-[0.1em]">{content.hero.trialInfo}</span>
               </div>
             </div>
           </div>
@@ -244,10 +246,10 @@ const App = () => {
       <section className="bg-wa-dark-bg dark:bg-wa-panel py-12 border-y border-wa-teal border-opacity-10">
         <Container>
            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 items-center text-white/40 hover:text-white/80 transition-colors duration-500">
-             <div className="flex items-center justify-center gap-3 text-sm font-black tracking-[0.15em] uppercase"><ShieldCheck size={18} className="text-wa-teal" /> <span>Enterprise Security</span></div>
-             <div className="flex items-center justify-center gap-3 text-sm font-black tracking-[0.15em] uppercase"><Play size={16} className="fill-wa-teal text-wa-teal" /> <span>10 Free Tickets</span></div>
-             <div className="flex items-center justify-center gap-3 text-sm font-black tracking-[0.15em] uppercase"><Globe size={18} className="text-wa-teal" /> <span>Global SMEs</span></div>
-             <div className="flex items-center justify-center gap-3 text-sm font-black tracking-[0.15em] uppercase"><Cpu size={18} className="text-wa-teal" /> <span>Reliable & Private</span></div>
+             <div className="flex items-center justify-center gap-3 text-sm font-black tracking-[0.15em] uppercase"><ShieldCheck size={18} className="text-wa-teal" /> <span>{content.trustBar[0]}</span></div>
+             <div className="flex items-center justify-center gap-3 text-sm font-black tracking-[0.15em] uppercase"><Play size={16} className="fill-wa-teal text-wa-teal" /> <span>{content.trustBar[1]}</span></div>
+             <div className="flex items-center justify-center gap-3 text-sm font-black tracking-[0.15em] uppercase"><Globe size={18} className="text-wa-teal" /> <span>{content.trustBar[2]}</span></div>
+             <div className="flex items-center justify-center gap-3 text-sm font-black tracking-[0.15em] uppercase"><Cpu size={18} className="text-wa-teal" /> <span>{content.trustBar[3]}</span></div>
            </div>
         </Container>
       </section>
@@ -255,68 +257,24 @@ const App = () => {
       {/* Features Grid Refactored */}
       <Section 
         id="features" 
-        title="Powered by Precision." 
-        subtitle="Our tech ecosystem is built to scale. Expertly designed workflows that maximize lead conversion and support efficiency."
+        title={content.features.title}
+        subtitle={content.features.subtitle}
       >
-        <FeatureGrid 
-          items={[
-            {
-              icon: <Lock />,
-              title: "Privacy First Architecture",
-              desc: "Deploy your own isolated instance. Your customer data never trains public LLMs. 100% Data Sovereignty guaranteed by design."
-            },
-            {
-              icon: <Zap />,
-              title: "Deep Knowledge Injection",
-              desc: "Our engine maps your unique business pricing, service idiosyncrasies, and regional policies to answer with authority."
-            },
-            {
-              icon: <DollarSign />,
-              title: "Pure Performance Model",
-              desc: "Zero upfront risk. Experiment with 10 tickets for free. Scale to our $29/mo flat-rate plan when you see the results."
-            },
-            {
-              icon: <Smartphone />,
-              title: "Stealth Message Logic",
-              desc: "Sophisticated rhythm mimicry—including variable jitter and human-like typing bursts—to protect your number reputation."
-            },
-            {
-              icon: <CheckCircle2 />,
-              title: "Industry Logic Packs",
-              desc: "Pre-tuned models for Clinics, Salons, and Trades. They already understand 'Appointment Rescheduling' and 'Emergency Callouts'."
-            },
-            {
-              icon: <Clock />,
-              title: "Endless Availability",
-              desc: "Maintain your elite brand tone 24/7. Auto-detects 40+ languages and shifts personalities to match customer urgency."
-            }
-          ]}
-        />
+        <FeatureGrid items={content.features.items} />
       </Section>
 
       {/* Process Flow - Re-styled as larger steps */}
-      <Section id="how-it-works" className="bg-wa-light-bg dark:bg-wa-dark-bg" title="Experience Flow." subtitle="Connecting your business to our intelligence engine is an effortless three-step protocol.">
+      <Section 
+        id="how-it-works" 
+        className="bg-wa-light-bg dark:bg-wa-dark-bg" 
+        title={content.process.title}
+        subtitle={content.process.subtitle}
+      >
         <div className="grid lg:grid-cols-3 gap-12 relative">
-          {[
-            {
-              step: "01",
-              title: "Initialize & Connect",
-              desc: "Deploy the executable, scan the WhatsApp QR, and authorize your secure instance."
-            },
-            {
-              step: "02",
-              title: "Sync Intelligence",
-              desc: "Drop your price lists, FAQs, or existing service handbooks into the dashboard."
-            },
-            {
-              step: "03",
-              title: "Go Autonomous",
-              desc: "Watch the AI handle queries and appointments while you focus on growth."
-            }
-          ].map((step, i) => (
+          {content.process.steps.map((step, i) => (
             <div key={i} className="group relative pt-10 border-t-2 border-wa-border dark:border-wa-panel hover:border-wa-teal transition-colors duration-500 animate-reveal" style={{ animationDelay: `${i * 0.2}s` }}>
               <span className="absolute -top-10 left-0 text-6xl font-black text-wa-teal opacity-10 group-hover:opacity-40 transition-opacity italic">
-                {step.step}
+                0{i + 1}
               </span>
               <h3 className="text-2xl font-black text-wa-dark-bg dark:text-white mb-4 tracking-tighter">{step.title}</h3>
               <p className="text-wa-text-secondary dark:text-wa-text-muted text-lg leading-relaxed">{step.desc}</p>
@@ -326,28 +284,18 @@ const App = () => {
       </Section>
 
       {/* Industry Verticals - High Impact Cards */}
-      <Section id="verticals" title="Vertical Dominance." subtitle="Tailored intelligence for your specific industry. We adapt our engine to the unique tone and knowledge requirements of your business vertical.">
+      <Section id="verticals" title={content.verticals.title} subtitle={content.verticals.subtitle}>
         <div className="grid lg:grid-cols-3 gap-8">
-          {[
-            {
-              name: "Health Clinics",
-              bullet: ["Appointment Scheduling", "Insurance Pre-Verification"],
-              bg: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800"
-            },
-            {
-              name: "Salons & Wellness",
-              bullet: ["Preference Matrix", "Loyalty Reward Tracking"],
-              bg: "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80&w=800"
-            },
-            {
-              name: "Maintenance Trades",
-              bullet: ["Urgency Classification", "Field Dispatch Automation"],
-              bg: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=800"
-            }
-          ].map((v, i) => (
+          {content.verticals.items.map((v, i) => {
+            const bgs = [
+              "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800",
+              "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80&w=800",
+              "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=800"
+            ];
+            return (
               <div key={i} className="relative h-[440px] rounded-[40px] overflow-hidden group animate-reveal shadow-xl hover:-translate-y-3 transition-all duration-700 cursor-pointer border border-white/5" style={{ animationDelay: `${i * 0.1}s` }}>
                  <img 
-                   src={v.bg} 
+                   src={bgs[i]} 
                    alt={`${v.name} AI Agent`} 
                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale-[0.3] group-hover:grayscale-0" 
                    loading="lazy"
@@ -356,7 +304,7 @@ const App = () => {
                  <div className="absolute bottom-0 left-0 p-10 text-white w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                    <h4 className="text-3xl font-black mb-6 tracking-tighter">{v.name}</h4>
                    <ul className="space-y-4">
-                     {v.bullet.map((b, bi) => (
+                     {v.bullets.map((b, bi) => (
                        <li key={bi} className="flex items-center gap-4 text-xs font-bold uppercase tracking-widest opacity-70 group-hover:opacity-100 transition-opacity">
                          <div className="flex-shrink-0 w-6 h-6 rounded-full bg-wa-teal/20 flex items-center justify-center">
                            <CheckCircle2 size={14} className="text-wa-teal" aria-hidden="true" />
@@ -367,7 +315,8 @@ const App = () => {
                    </ul>
                  </div>
               </div>
-          ))}
+            );
+          })}
         </div>
       </Section>
 
@@ -375,28 +324,28 @@ const App = () => {
       <Section id="pricing" className="bg-wa-teal dark:bg-wa-teal dark:bg-opacity-5 bg-opacity-[0.03]">
         <div className="max-w-4xl mx-auto dark:bg-wa-panel bg-white rounded-[40px] p-10 md:p-16 shadow-2xl border-2 border-wa-teal/20 relative overflow-hidden">
           <div className="absolute top-12 -right-16 rotate-45 bg-wa-teal text-white py-2 px-20 font-black shadow-2xl tracking-[0.2em] text-[10px]">
-             LIMITED OFFER
+             {content.pricing.badge}
           </div>
           <div className="flex flex-col lg:grid lg:grid-cols-2 lg:items-center gap-16">
             <div className="text-center lg:text-left">
-               <h2 className="text-4xl md:text-5xl font-black text-wa-dark-bg dark:text-white mb-6 tracking-tighter">Scale with <br /><span className="text-wa-teal">Confidence.</span></h2>
+               <h2 className="text-4xl md:text-5xl font-black text-wa-dark-bg dark:text-white mb-6 tracking-tighter">{content.pricing.title} <br /><span className="text-wa-teal">{content.pricing.titleAccent}</span></h2>
                <div className="flex flex-col gap-1 mb-10">
                  <div className="flex items-center justify-center lg:justify-start gap-4">
-                    <span className="text-6xl font-black text-wa-teal-dark dark:text-wa-teal tracking-tighter">FREE</span>
-                    <span className="text-wa-text-muted text-base font-black uppercase tracking-widest pt-5">/ 10 Tickets</span>
+                    <span className="text-6xl font-black text-wa-teal-dark dark:text-wa-teal tracking-tighter">{content.pricing.mainLabel}</span>
+                    <span className="text-wa-text-muted text-base font-black uppercase tracking-widest pt-5">{content.pricing.subLabel}</span>
                  </div>
                  <div className="flex items-center justify-center lg:justify-start gap-3">
-                    <span className="text-2xl font-black text-wa-dark-bg dark:text-white tracking-widest">$29.00</span>
-                    <span className="text-wa-text-muted text-[10px] font-bold uppercase tracking-[.25em] pt-1.5">Fixed Monthly</span>
+                    <span className="text-2xl font-black text-wa-dark-bg dark:text-white tracking-widest">{content.pricing.price}</span>
+                    <span className="text-wa-text-muted text-[10px] font-bold uppercase tracking-[.25em] pt-1.5">{content.pricing.priceLabel}</span>
                  </div>
                </div>
                
                <a href="mailto:contact@aiconsumeragent.com" className="btn-primary w-full shadow-2xl shadow-wa-teal/20 !py-5 uppercase font-black tracking-[.2em] text-sm">
-                 Request Access Now
+                 {content.pricing.cta}
                </a>
             </div>
             <div className="space-y-5">
-                {["Omni-channel Support", "Expert Knowledge Engine", "Anti-Ban Protection", "Dedicated Instance", "Brand Tone Control", "Live Daily Analytics"].map((item, i) => (
+                {content.pricing.features.map((item, i) => (
                   <div key={i} className="flex items-center gap-4 text-wa-dark-bg dark:text-white font-black text-[10px] uppercase tracking-widest group">
                     <div className="w-8 h-8 rounded-full bg-wa-teal/10 dark:bg-wa-teal/20 flex items-center justify-center group-hover:bg-wa-teal group-hover:text-white transition-all transform group-hover:scale-110">
                       <CheckCircle2 size={16} className="text-wa-teal-dark dark:text-wa-teal group-hover:text-white" />
@@ -421,7 +370,7 @@ const App = () => {
                 <span className="text-2xl font-black tracking-tighter text-white">AIConsumerAgent</span>
               </div>
               <p className="text-wa-text-muted text-lg max-w-sm leading-relaxed font-medium">
-                Autonomous support for physical commerce. Secure, private, and insanely efficient.
+                {content.footer.description}
               </p>
             </div>
             
@@ -444,13 +393,13 @@ const App = () => {
           </div>
           
           <div className="pt-10 border-t border-wa-panel flex flex-col lg:flex-row justify-between items-center gap-8 text-wa-text-muted">
-            <p className="text-[10px] font-black uppercase tracking-[.25em]">&copy; 2026 AIConsumerAgent Ecosystem.</p>
+            <p className="text-[10px] font-black uppercase tracking-[.25em]">{content.footer.copyright}</p>
             <div className="flex gap-8 text-[10px] font-black uppercase tracking-[.2em]">
               <a href="#" className="hover:text-wa-teal transition-all">Privacy</a>
               <a href="#" className="hover:text-wa-teal transition-all">Terms</a>
             </div>
             <p className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[.1em]">
-              Built for Growth <Heart size={12} className="text-red-500 fill-red-500" aria-hidden="true" /> Global SME Market
+              {content.footer.tagline} <Heart size={12} className="text-red-500 fill-red-500" aria-hidden="true" />
             </p>
           </div>
         </Container>

@@ -24,6 +24,8 @@ dist-ssr
 .vscode/tasks.json
 .vscode/launch.json
 .opencode/
+.agent/
+.agents/
 .idea
 .DS_Store
 *.suo

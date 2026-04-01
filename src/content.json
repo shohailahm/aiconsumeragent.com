@@ -1,0 +1,106 @@
+{
+  "hero": {
+    "badge": "Combined Support & CRM Software",
+    "title": "Your Personal AI Team for",
+    "titleAccent": "WhatsApp & Email.",
+    "description": "One simple software to handle every customer query across WhatsApp, Email, and more. 100% private, stays on your computer, and starts for free.",
+    "cta": "Download for Free",
+    "trustBadge": "Instant 5-Minute Setup",
+    "trialInfo": "10 Free Conversations (Then $29/mo)"
+  },
+  "trustBar": [
+    "No Monthly API Fees",
+    "Data Stays on Your PC",
+    "Easy for Local Shops",
+    "24/7 Automatic Replies"
+  ],
+  "features": {
+    "title": "Simple. Smart. Secure.",
+    "subtitle": "Stop losing leads while you sleep. Our software turns your WhatsApp and Email into a fully automated customer support and sales machine.",
+    "items": [
+      {
+        "title": "Data Privacy Guaranteed",
+        "desc": "The software runs entirely on your laptop. Your customer chats and business secrets never leave your office or go to the cloud."
+      },
+      {
+        "title": "One Inbox for Everything",
+        "desc": "Manage every WhatsApp chat, Email inquiry, and lead from a single dashboard. No more switching between apps to find your customers."
+      },
+      {
+        "title": "Automatic Expert Knowledge",
+        "desc": "Simply drop your price list or FAQ into the dashboard. The AI learns your business in seconds and answers customers with zero mistakes."
+      },
+      {
+        "title": "Safe & Human-Like",
+        "desc": "Our 'Stealth-Logic' imitates human typing speeds and gaps, making sure your WhatsApp and Email accounts stay safe and trusted."
+      },
+      {
+        "title": "Ready for Your Industry",
+        "desc": "Pre-built settings for Clinics, Salons, and Trades. It already knows the difference between a 'Trim' and a 'Root Touch-up'."
+      },
+      {
+        "title": "Evening Voice Reports",
+        "desc": "Get a simple voice note sent to your phone every evening summarizing your day's sales, happy customers, and pending tasks."
+      }
+    ]
+  },
+  "process": {
+    "title": "Set Up in 3 Minutes.",
+    "subtitle": "No technical skills required. If you can use WhatsApp Web or check an email, you can use AIConsumerAgent.",
+    "steps": [
+      {
+        "title": "Connect Your Accounts",
+        "desc": "Install the app, scan your WhatsApp QR code, and link your email in seconds with our simple onboarding wizard."
+      },
+      {
+        "title": "Teach the AI",
+        "desc": "Upload a PDF or Excel sheet of your prices. Tell the AI your business name and how you like to talk to customers."
+      },
+      {
+        "title": "Watch it Grow",
+        "desc": "Sit back while your AI Agent greets customers, takes bookings, and handles emails 24/7 across all channels."
+      }
+    ]
+  },
+  "verticals": {
+    "title": "Tailored for Your Business.",
+    "subtitle": "No matter what you do, our AI understands your industry's specific needs and talks to your customers like an expert.",
+    "items": [
+      {
+        "name": "Health Clinics",
+        "bullets": ["Automatic Appointments", "Patient Reminders"]
+      },
+      {
+        "name": "Salons & Wellness",
+        "bullets": ["Beauty Bookings", "Customer History Tracking"]
+      },
+      {
+        "name": "Maintenance Trades",
+        "bullets": ["Emergency Call Handling", "Job Scheduling"]
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Grow with",
+    "titleAccent": "Ease.",
+    "badge": "LIMITED OFFER",
+    "mainLabel": "STARTER",
+    "subLabel": "FREE / 10 Chats",
+    "price": "$29.00",
+    "priceLabel": "Fixed Monthly",
+    "cta": "Start My Free Trial",
+    "features": [
+      "All-in-One Support & CRM",
+      "Automatic Expert Agent",
+      "Safe WhatsApp Connection",
+      "Stays Private on Your PC",
+      "Easy Drag-and-Drop Setup",
+      "Live Daily Reports"
+    ]
+  },
+  "footer": {
+    "description": "The simple way to automate your customer support and sales across WhatsApp and Email. Private, secure, and always on for your business.",
+    "copyright": "© 2026 AIConsumerAgent Software.",
+    "tagline": "The Multi-Channel AI Assistant for Local Business Owners"
+  }
+}
