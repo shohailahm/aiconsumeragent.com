@@ -23,7 +23,8 @@
   "homepage": "https://github.com/shohailahm/aiconsumeragent.com#readme",
   "dependencies": {
     "react": "^19.2.4",
-    "react-dom": "^19.2.4"
+    "react-dom": "^19.2.4",
+    "react-router-dom": "^7.13.2"
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "^1.30.3",
