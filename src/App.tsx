@@ -20,6 +20,7 @@ import {
   Sun
 } from 'lucide-react'
 import content from './content.json'
+import { trackEvent } from './utils/analytics'
 
 // Performance: Isolate Navbar re-renders due to scroll
 const Navbar = memo(() => {
@@ -42,6 +43,11 @@ const Navbar = memo(() => {
     const nextMode = !isDarkMode;
     setIsDarkMode(nextMode);
     document.documentElement.classList.toggle('dark', nextMode);
+    trackEvent({
+      action: 'toggle_dark_mode',
+      category: 'ui',
+      label: nextMode ? 'dark' : 'light'
+    });
   };
 
   return (
@@ -69,9 +75,9 @@ const Navbar = memo(() => {
         </div>
 
         <div className="hidden md:flex items-center gap-8">
-          <a href="#features" className="nav-link text-sm uppercase tracking-widest font-bold dark:text-wa-text-muted hover:dark:text-wa-teal">Features</a>
-          <a href="#how-it-works" className="nav-link text-sm uppercase tracking-widest font-bold dark:text-wa-text-muted hover:dark:text-wa-teal">Easy Setup</a>
-          <a href="#verticals" className="nav-link text-sm uppercase tracking-widest font-bold dark:text-wa-text-muted hover:dark:text-wa-teal">Your Industry</a>
+          <a href="#features" onClick={() => trackEvent({ action: 'nav_click', category: 'navigation', label: 'features' })} className="nav-link text-sm uppercase tracking-widest font-bold dark:text-wa-text-muted hover:dark:text-wa-teal">Features</a>
+          <a href="#how-it-works" onClick={() => trackEvent({ action: 'nav_click', category: 'navigation', label: 'how_it_works' })} className="nav-link text-sm uppercase tracking-widest font-bold dark:text-wa-text-muted hover:dark:text-wa-teal">Easy Setup</a>
+          <a href="#verticals" onClick={() => trackEvent({ action: 'nav_click', category: 'navigation', label: 'verticals' })} className="nav-link text-sm uppercase tracking-widest font-bold dark:text-wa-text-muted hover:dark:text-wa-teal">Your Industry</a>
           
           <button 
             onClick={toggleDarkMode}
@@ -81,7 +87,9 @@ const Navbar = memo(() => {
             {isDarkMode ? <Sun size={20} className="text-wa-teal" /> : <Moon size={20} className="text-wa-text-secondary" />}
           </button>
 
-          <a href="mailto:contact@aiconsumeragent.com" className="btn-primary !py-2.5 !px-8 text-xs font-black uppercase tracking-wider">
+          <a href="mailto:contact@aiconsumeragent.com" 
+            onClick={() => trackEvent({ action: 'cta_click', category: 'navigation', label: 'get_trial_nav' })}
+            className="btn-primary !py-2.5 !px-8 text-xs font-black uppercase tracking-wider">
             Get Trial
           </a>
         </div>
@@ -108,11 +116,13 @@ const Navbar = memo(() => {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-white dark:bg-wa-panel border-t border-wa-border dark:border-wa-dark-bg absolute top-full left-0 right-0 shadow-2xl py-8 px-6 flex flex-col gap-6 animate-reveal">
-          <a href="#features" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold dark:text-white">What it Does</a>
-          <a href="#how-it-works" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold dark:text-white">How it Works</a>
-          <a href="#verticals" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold dark:text-white">For Your Industry</a>
-          <a href="#pricing" onClick={() => setIsMenuOpen(false)} className="text-xl font-bold text-wa-teal dark:text-wa-teal">Free Trial</a>
-          <a href="mailto:contact@aiconsumeragent.com" className="btn-primary mt-6 !py-4 text-center">Get Free Access</a>
+          <a href="#features" onClick={() => { setIsMenuOpen(false); trackEvent({ action: 'nav_click', category: 'mobile_menu', label: 'features' }); }} className="text-xl font-bold dark:text-white">What it Does</a>
+          <a href="#how-it-works" onClick={() => { setIsMenuOpen(false); trackEvent({ action: 'nav_click', category: 'mobile_menu', label: 'how_it_works' }); }} className="text-xl font-bold dark:text-white">How it Works</a>
+          <a href="#verticals" onClick={() => { setIsMenuOpen(false); trackEvent({ action: 'nav_click', category: 'mobile_menu', label: 'verticals' }); }} className="text-xl font-bold dark:text-white">For Your Industry</a>
+          <a href="#pricing" onClick={() => { setIsMenuOpen(false); trackEvent({ action: 'nav_click', category: 'mobile_menu', label: 'pricing' }); }} className="text-xl font-bold text-wa-teal dark:text-wa-teal">Free Trial</a>
+          <a href="mailto:contact@aiconsumeragent.com" 
+            onClick={() => trackEvent({ action: 'cta_click', category: 'mobile_menu', label: 'get_free_access' })}
+            className="btn-primary mt-6 !py-4 text-center">Get Free Access</a>
         </div>
       )}
     </nav>
@@ -161,6 +171,14 @@ const FeatureGrid = ({ items }: { items: any[] }) => {
 }
 
 const App = () => {
+  useEffect(() => {
+    trackEvent({
+      action: 'page_view',
+      category: 'engagement',
+      label: 'home'
+    });
+  }, []);
+
   return (
     <div className="min-h-screen font-sans selection:bg-wa-teal selection:text-white bg-white dark:bg-wa-dark-bg dark:text-white transition-colors duration-500">
       <Navbar />
@@ -189,6 +207,7 @@ const App = () => {
               <a 
                 href="mailto:contact@aiconsumeragent.com" 
                 className="btn-primary w-full sm:w-auto bg-wa-teal-dark dark:bg-wa-teal text-white shadow-xl transition-all !py-4 !px-8 text-base uppercase font-black tracking-widest"
+                onClick={() => trackEvent({ action: 'cta_click', category: 'hero', label: 'get_trial' })}
               >
                 {content.hero.cta} <ChevronRight size={20} aria-hidden="true" />
               </a>
@@ -203,7 +222,10 @@ const App = () => {
 
           <div className="mt-16 relative animate-reveal group/hero" style={{ animationDelay: '0.4s' }}>
             <div className="relative rounded-[32px] overflow-hidden shadow-[0_32px_64px_-16px_rgba(0,0,0,0.15)] border-4 border-white dark:border-wa-panel aspect-[21/9] bg-wa-dark-bg group cursor-pointer relative">
-              <div className="absolute inset-0 bg-wa-dark-bg bg-opacity-20 flex items-center justify-center group-hover:bg-opacity-10 transition-all z-20">
+              <div 
+                className="absolute inset-0 bg-wa-dark-bg bg-opacity-20 flex items-center justify-center group-hover:bg-opacity-10 transition-all z-20"
+                onClick={() => trackEvent({ action: 'video_play', category: 'engagement', label: 'walkthrough' })}
+              >
                 <div className="w-20 h-20 bg-wa-teal rounded-full flex items-center justify-center text-white shadow-2xl transform transition-transform group-hover:scale-110 active:scale-95 duration-500">
                   <Play fill="white" size={28} className="ml-1" aria-hidden="true" />
                   <span className="sr-only">Play walkthrough video</span>
@@ -340,7 +362,9 @@ const App = () => {
                  </div>
                </div>
                
-               <a href="mailto:contact@aiconsumeragent.com" className="btn-primary w-full shadow-2xl shadow-wa-teal/20 !py-5 uppercase font-black tracking-[.2em] text-sm">
+               <a href="mailto:contact@aiconsumeragent.com" 
+                  onClick={() => trackEvent({ action: 'cta_click', category: 'pricing', label: 'get_started' })}
+                  className="btn-primary w-full shadow-2xl shadow-wa-teal/20 !py-5 uppercase font-black tracking-[.2em] text-sm">
                  {content.pricing.cta}
                </a>
             </div>

@@ -7,3 +7,7 @@ compatibility_date = "2024-11-01"
 
 [build]
 command = "npm run build"
+
+[[analytics_engine_datasets]]
+binding = "ANALYTICS_ENGINE"
+dataset = "aic_consumer_agent_events"
