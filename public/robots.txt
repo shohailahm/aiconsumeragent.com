@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://aiconsumeragent.com/sitemap.xml
+Sitemap: https://www.aiconsumeragent.com/sitemap.xml
