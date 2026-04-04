@@ -6,9 +6,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && rm -f dist/wrangler.json",
     "preview": "vite preview",
-    "deploy": "wrangler pages deploy dist"
+    "deploy": "rm -rf .wrangler && wrangler pages deploy dist"
   },
   "repository": {
     "type": "git",

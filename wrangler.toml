@@ -5,9 +5,6 @@ compatibility_date = "2024-11-01"
 [vars]
 # Add any environment variables here later
 
-[build]
-command = "npm run build"
 
-[[analytics_engine_datasets]]
-binding = "ANALYTICS_ENGINE"
-dataset = "aic_consumer_agent_events"
+
+
