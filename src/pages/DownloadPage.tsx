@@ -8,7 +8,7 @@ import {
   ArrowRight,
   Clock
 } from 'lucide-react'
-import { trackEvent } from '../utils/analytics'
+import { trackCtaClick, trackEvent } from '../utils/analytics'
 import { Container } from '../components/Layout'
 
 const AppleIcon = ({ className }: { className?: string }) => (
@@ -79,7 +79,9 @@ const DownloadCard = ({ title, subtitle, platform, icon: Icon, features, downloa
         ) : (
           <a 
             href={downloadUrl}
-            onClick={() => trackEvent({ action: 'download_click', category: 'product', label: platform })}
+            onClick={() => {
+              trackEvent({ action: 'download_click', category: 'product', label: platform })
+            }}
             className={`btn-primary w-full !py-5 shadow-2xl flex items-center justify-center gap-4 group/btn overflow-hidden relative ring-1 ring-white/10 ${
               recommended 
                 ? 'bg-white !text-wa-teal-dark hover:bg-wa-light-bg' 
@@ -103,11 +105,6 @@ const DownloadCard = ({ title, subtitle, platform, icon: Icon, features, downloa
 
 const DownloadPage = () => {
   useEffect(() => {
-    trackEvent({
-      action: 'page_view',
-      category: 'engagement',
-      label: 'download'
-    });
     window.scrollTo(0, 0);
   }, []);
 
@@ -195,7 +192,11 @@ const DownloadPage = () => {
             <p className="text-wa-text-secondary dark:text-wa-text-muted leading-relaxed text-lg font-medium mb-8">
               Ready to deploy across thousands of regional nodes? Contact our solutions desk for volume licensing.
             </p>
-            <a href="mailto:contact@aiconsumeragent.com" className="text-wa-teal font-black text-[10px] uppercase tracking-[.3em] flex items-center gap-3 hover:gap-5 transition-all">
+            <a
+              href="mailto:contact@aiconsumeragent.com"
+              onClick={() => trackCtaClick('enterprise_solutions', 'download')}
+              className="text-wa-teal font-black text-[10px] uppercase tracking-[.3em] flex items-center gap-3 hover:gap-5 transition-all"
+            >
               Enterprise Solutions <ChevronRight size={16} />
             </a>
           </div>

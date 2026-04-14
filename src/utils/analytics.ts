@@ -1,24 +1,68 @@
 /**
- * Cloudflare Analytics Utility
- * 
- * Provides methods to track user interactions and performance metrics.
- * Events are sent to the /api/track endpoint and recorded in Cloudflare Analytics Engine.
+ * Cloudflare Zaraz + Analytics Engine Utility
+ *
+ * Events are sent to Zaraz when available and mirrored to the
+ * existing /api/track endpoint for Cloudflare Analytics Engine.
  */
+
+import { buildZarazTrackProperties, trackWithZaraz } from './zaraz'
 
 export interface AnalyticsEvent {
   action: string;
   category?: string;
   label?: string;
   value?: number;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
 }
+
+export const trackPageView = (label: string, metadata?: Record<string, unknown>) =>
+  trackEvent({
+    action: 'page_view',
+    category: 'engagement',
+    label,
+    metadata,
+  })
+
+export const trackCtaClick = (label: string, category = 'cta', metadata?: Record<string, unknown>) =>
+  trackEvent({
+    action: 'cta_click',
+    category,
+    label,
+    metadata,
+  })
 
 export const trackEvent = async (event: AnalyticsEvent) => {
   try {
-    // In production, this sends to our Cloudflare Pages Function
-    // In development, we log to console
-    if ((import.meta as any).env?.DEV) {
+    const isDev = Boolean(import.meta.env?.DEV)
+
+    // In development, keep the signal visible in the console and skip the network hop.
+    if (isDev) {
       console.log('[Analytics]', event);
+      return;
+    }
+
+    const zarazTracked = trackWithZaraz(event.action, buildZarazTrackProperties(event))
+
+    const payload = JSON.stringify({
+      ...event,
+      timestamp: Date.now(),
+      url: window.location.href,
+      referrer: document.referrer,
+    })
+
+    if (!zarazTracked && !navigator.sendBeacon) {
+      console.warn('[Analytics] Zaraz is not available yet; falling back to fetch only.')
+    }
+
+    if (navigator.sendBeacon) {
+      const delivered = navigator.sendBeacon(
+        '/api/track',
+        new Blob([payload], { type: 'application/json' })
+      )
+
+      if (delivered) {
+        return
+      }
     }
 
     const response = await fetch('/api/track', {
@@ -26,12 +70,8 @@ export const trackEvent = async (event: AnalyticsEvent) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        ...event,
-        timestamp: Date.now(),
-        url: window.location.href,
-        referrer: document.referrer,
-      }),
+      keepalive: true,
+      body: payload,
     });
 
     if (!response.ok) {

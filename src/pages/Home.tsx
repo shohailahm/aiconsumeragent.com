@@ -15,7 +15,7 @@ import {
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import content from '../content.json'
-import { trackEvent } from '../utils/analytics'
+import { trackCtaClick } from '../utils/analytics'
 import { Container, Section } from '../components/Layout'
 
 const FeatureGrid = ({ items }: { items: any[] }) => {
@@ -40,14 +40,8 @@ const FeatureGrid = ({ items }: { items: any[] }) => {
   )
 }
 
-const Home = () => {
+const Home = ({ onDemoClick }: { onDemoClick?: () => void }) => {
   useEffect(() => {
-    trackEvent({
-      action: 'page_view',
-      category: 'engagement',
-      label: 'home'
-    });
-    
     // Handle hash scrolling if present
     if (window.location.hash) {
       const id = window.location.hash.substring(1);
@@ -81,24 +75,38 @@ const Home = () => {
               <Link 
                 to="/download" 
                 className="btn-primary w-full sm:w-auto bg-wa-teal-dark dark:bg-wa-teal text-white shadow-xl transition-all !py-4 !px-8 text-base uppercase font-black tracking-widest"
-                onClick={() => trackEvent({ action: 'cta_click', category: 'hero', label: 'go_to_download' })}
+                onClick={() => trackCtaClick('go_to_download', 'hero')}
               >
                 Download App <ChevronRight size={20} aria-hidden="true" />
               </Link>
-              <div className="flex flex-col gap-2 items-start pl-2">
+              <button 
+                onClick={() => {
+                  onDemoClick?.();
+                  trackCtaClick('request_demo_hero', 'hero');
+                }}
+                className="w-full sm:w-auto px-8 py-4 rounded-full border-2 border-wa-teal/20 dark:border-wa-teal/10 hover:border-wa-teal text-wa-dark-bg dark:text-white font-black uppercase tracking-widest transition-all duration-300 bg-white/50 dark:bg-white/5 backdrop-blur-sm shadow-lg hover:shadow-wa-teal/10"
+              >
+                Request Demo
+              </button>
+            </div>
+            <div className="mt-8 flex flex-col gap-2 items-start pl-2">
                  <span className="text-wa-text-primary dark:text-white flex items-center gap-2 font-black text-sm uppercase tracking-tight">
                   <ShieldCheck size={20} className="text-wa-teal" aria-hidden="true" /> {content.hero.trustBadge}
                 </span>
                 <span className="text-xs text-wa-text-muted font-bold uppercase tracking-[0.1em]">{content.hero.trialInfo}</span>
-              </div>
             </div>
           </div>
 
           <div className="mt-16 relative animate-reveal group/hero" style={{ animationDelay: '0.4s' }}>
-            <div className="relative rounded-[32px] overflow-hidden shadow-[0_32px_64px_-16px_rgba(0,0,0,0.15)] border-4 border-white dark:border-wa-panel aspect-[21/9] bg-wa-dark-bg group cursor-pointer">
+            <div
+              className="relative rounded-[32px] overflow-hidden shadow-[0_32px_64px_-16px_rgba(0,0,0,0.15)] border-4 border-white dark:border-wa-panel aspect-[21/9] bg-wa-dark-bg group cursor-pointer"
+              onClick={() => {
+                trackCtaClick('hero_media_demo', 'hero')
+                onDemoClick?.()
+              }}
+            >
               <div 
                 className="absolute inset-0 bg-wa-dark-bg bg-opacity-20 flex items-center justify-center group-hover:bg-opacity-10 transition-all z-20"
-                onClick={() => trackEvent({ action: 'video_play', category: 'engagement', label: 'walkthrough' })}
               >
                 <div className="w-20 h-20 bg-wa-teal rounded-full flex items-center justify-center text-white shadow-2xl transform transition-transform group-hover:scale-110 active:scale-95 duration-500">
                   <Play fill="white" size={28} className="ml-1" aria-hidden="true" />
@@ -223,11 +231,14 @@ const Home = () => {
                  </div>
                </div>
                
-               <a href="mailto:contact@aiconsumeragent.com" 
-                  onClick={() => trackEvent({ action: 'cta_click', category: 'pricing', label: 'get_started' })}
+               <button 
+                  onClick={() => {
+                    onDemoClick?.();
+                    trackCtaClick('request_demo_pricing', 'pricing');
+                  }}
                   className="btn-primary w-full shadow-2xl shadow-wa-teal/20 !py-5 uppercase font-black tracking-[.2em] text-sm">
-                 {content.pricing.cta}
-               </a>
+                 Request Free Demo
+               </button>
             </div>
             <div className="space-y-5">
                 {content.pricing.features.map((item, i) => (
