@@ -103,7 +103,7 @@ const Home = () => {
               href={GOOGLE_FORM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative rounded-[32px] overflow-hidden shadow-[0_32px_64px_-16px_rgba(0,0,0,0.15)] border-4 border-white dark:border-wa-panel aspect-[21/9] bg-wa-dark-bg group cursor-pointer"
+              className="relative block rounded-[32px] overflow-hidden shadow-[0_32px_64px_-16px_rgba(0,0,0,0.15)] border-4 border-white dark:border-wa-panel aspect-[21/9] bg-wa-dark-bg group cursor-pointer"
               onClick={() => trackCtaClick('hero_media_demo', 'hero')}
             >
               <div 
