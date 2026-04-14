@@ -20,7 +20,7 @@ import {
   Sun
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import { trackEvent } from '../utils/analytics'
+import { trackCtaClick, trackEvent } from '../utils/analytics'
 
 export const Container = ({ children, className = "" }: { children: React.ReactNode, className?: string }) => (
   <div className={`max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 ${className}`}>{children}</div>
@@ -44,6 +44,7 @@ export const Navbar = memo(() => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSefOmK8syv6sBmQ6qBNha1STbfD1v22Ke8y4Pbuk0ciR8bicQ/viewform?usp=header";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -76,7 +77,7 @@ export const Navbar = memo(() => {
       aria-label="Main navigation"
     >
       <Container className="flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-4 group cursor-pointer" onClick={() => trackEvent({ action: 'nav_click', category: 'navigation', label: 'logo' })}>
+        <Link to="/" className="flex items-center gap-4 group cursor-pointer" onClick={() => trackCtaClick('logo', 'navigation')}>
           <div className={`relative flex items-center justify-center p-1 rounded-xl transition-all duration-500 overflow-hidden ${scrolled ? 'bg-wa-teal/5 ring-1 ring-wa-teal/10' : 'bg-wa-teal/10 ring-2 ring-wa-teal/20'}`}>
             <img 
               src="/assets/brand-logo.png" 
@@ -91,8 +92,8 @@ export const Navbar = memo(() => {
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
-          <Link to="/#features" onClick={() => trackEvent({ action: 'nav_click', category: 'navigation', label: 'features' })} className="nav-link">Features</Link>
-          <Link to="/download" onClick={() => trackEvent({ action: 'nav_click', category: 'navigation', label: 'download' })} className="nav-link">Download</Link>
+          <Link to="/#features" onClick={() => trackCtaClick('features', 'navigation')} className="nav-link">Features</Link>
+          <Link to="/download" onClick={() => trackCtaClick('download', 'navigation')} className="nav-link">Download</Link>
           
           <button 
             onClick={toggleDarkMode}
@@ -102,10 +103,13 @@ export const Navbar = memo(() => {
             {isDarkMode ? <Sun size={20} className="text-wa-teal" /> : <Moon size={20} className="text-wa-text-secondary" />}
           </button>
 
-          <a href="mailto:contact@aiconsumeragent.com" 
-            onClick={() => trackEvent({ action: 'cta_click', category: 'navigation', label: 'get_trial_nav' })}
-            className="btn-primary !py-2.5 !px-8 text-xs font-black uppercase tracking-wider">
-            Get Trial
+          <a 
+            href={GOOGLE_FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackCtaClick('request_demo_nav', 'navigation')}
+            className="btn-primary !py-2.5 !px-8 text-xs font-black uppercase tracking-wider shadow-lg shadow-wa-teal/10">
+            Request Demo
           </a>
         </div>
 
@@ -131,11 +135,17 @@ export const Navbar = memo(() => {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-white dark:bg-wa-panel border-t border-wa-border dark:border-wa-dark-bg absolute top-full left-0 right-0 shadow-2xl py-8 px-6 flex flex-col gap-6 animate-reveal">
-          <Link to="/#features" onClick={() => { setIsMenuOpen(false); trackEvent({ action: 'nav_click', category: 'mobile_menu', label: 'features' }); }} className="text-xl font-bold dark:text-white">What it Does</Link>
-          <Link to="/download" onClick={() => { setIsMenuOpen(false); trackEvent({ action: 'nav_click', category: 'mobile_menu', label: 'download' }); }} className="text-xl font-bold dark:text-white">Downloads</Link>
-          <a href="mailto:contact@aiconsumeragent.com" 
-            onClick={() => trackEvent({ action: 'cta_click', category: 'mobile_menu', label: 'get_free_access' })}
-            className="btn-primary mt-6 !py-4 text-center">Get Free Access</a>
+          <Link to="/#features" onClick={() => { setIsMenuOpen(false); trackCtaClick('features', 'mobile_menu'); }} className="text-xl font-bold dark:text-white">What it Does</Link>
+          <Link to="/download" onClick={() => { setIsMenuOpen(false); trackCtaClick('download', 'mobile_menu'); }} className="text-xl font-bold dark:text-white">Downloads</Link>
+          <a 
+            href={GOOGLE_FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => {
+              setIsMenuOpen(false);
+              trackCtaClick('request_demo', 'mobile_menu');
+            }}
+            className="btn-primary mt-6 !py-4 text-center">Request Demo</a>
         </div>
       )}
     </nav>
