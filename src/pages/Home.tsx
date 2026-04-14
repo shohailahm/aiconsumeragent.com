@@ -40,7 +40,8 @@ const FeatureGrid = ({ items }: { items: any[] }) => {
   )
 }
 
-const Home = ({ onDemoClick }: { onDemoClick?: () => void }) => {
+const Home = () => {
+  const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSefOmK8syv6sBmQ6qBNha1STbfD1v22Ke8y4Pbuk0ciR8bicQ/viewform?usp=header";
   useEffect(() => {
     // Handle hash scrolling if present
     if (window.location.hash) {
@@ -79,15 +80,15 @@ const Home = ({ onDemoClick }: { onDemoClick?: () => void }) => {
               >
                 Download App <ChevronRight size={20} aria-hidden="true" />
               </Link>
-              <button 
-                onClick={() => {
-                  onDemoClick?.();
-                  trackCtaClick('request_demo_hero', 'hero');
-                }}
-                className="w-full sm:w-auto px-8 py-4 rounded-full border-2 border-wa-teal/20 dark:border-wa-teal/10 hover:border-wa-teal text-wa-dark-bg dark:text-white font-black uppercase tracking-widest transition-all duration-300 bg-white/50 dark:bg-white/5 backdrop-blur-sm shadow-lg hover:shadow-wa-teal/10"
+              <a 
+                href={GOOGLE_FORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackCtaClick('request_demo_hero', 'hero')}
+                className="w-full sm:w-auto px-8 py-4 rounded-full border-2 border-wa-teal/20 dark:border-wa-teal/10 hover:border-wa-teal text-wa-dark-bg dark:text-white font-black uppercase tracking-widest transition-all duration-300 bg-white/50 dark:bg-white/5 backdrop-blur-sm shadow-lg hover:shadow-wa-teal/10 text-center"
               >
                 Request Demo
-              </button>
+              </a>
             </div>
             <div className="mt-8 flex flex-col gap-2 items-start pl-2">
                  <span className="text-wa-text-primary dark:text-white flex items-center gap-2 font-black text-sm uppercase tracking-tight">
@@ -98,12 +99,12 @@ const Home = ({ onDemoClick }: { onDemoClick?: () => void }) => {
           </div>
 
           <div className="mt-16 relative animate-reveal group/hero" style={{ animationDelay: '0.4s' }}>
-            <div
+            <a 
+              href={GOOGLE_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="relative rounded-[32px] overflow-hidden shadow-[0_32px_64px_-16px_rgba(0,0,0,0.15)] border-4 border-white dark:border-wa-panel aspect-[21/9] bg-wa-dark-bg group cursor-pointer"
-              onClick={() => {
-                trackCtaClick('hero_media_demo', 'hero')
-                onDemoClick?.()
-              }}
+              onClick={() => trackCtaClick('hero_media_demo', 'hero')}
             >
               <div 
                 className="absolute inset-0 bg-wa-dark-bg bg-opacity-20 flex items-center justify-center group-hover:bg-opacity-10 transition-all z-20"
@@ -118,7 +119,7 @@ const Home = ({ onDemoClick }: { onDemoClick?: () => void }) => {
                 className="absolute inset-0 w-full h-full object-cover grayscale-[0.2] transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
                 loading="lazy"
               />
-            </div>
+            </a>
             
             <div className="hidden lg:flex absolute -top-8 -right-6 bg-white dark:bg-wa-panel p-5 rounded-2xl shadow-xl border border-wa-border dark:border-wa-dark-bg flex items-center gap-4 animate-float-slow z-30">
                <div className="bg-wa-teal/10 text-wa-teal p-2.5 rounded-xl">
@@ -231,14 +232,14 @@ const Home = ({ onDemoClick }: { onDemoClick?: () => void }) => {
                  </div>
                </div>
                
-               <button 
-                  onClick={() => {
-                    onDemoClick?.();
-                    trackCtaClick('request_demo_pricing', 'pricing');
-                  }}
-                  className="btn-primary w-full shadow-2xl shadow-wa-teal/20 !py-5 uppercase font-black tracking-[.2em] text-sm">
+               <a 
+                  href={GOOGLE_FORM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackCtaClick('request_demo_pricing', 'pricing')}
+                  className="btn-primary w-full shadow-2xl shadow-wa-teal/20 !py-5 uppercase font-black tracking-[.2em] text-sm text-center">
                  Request Free Demo
-               </button>
+               </a>
             </div>
             <div className="space-y-5">
                 {content.pricing.features.map((item, i) => (

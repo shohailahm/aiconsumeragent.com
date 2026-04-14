@@ -40,10 +40,11 @@ export const Section = ({ id, children, className = "", title, subtitle }: { id?
   </section>
 )
 
-export const Navbar = memo(({ onDemoClick }: { onDemoClick?: () => void }) => {
+export const Navbar = memo(() => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSefOmK8syv6sBmQ6qBNha1STbfD1v22Ke8y4Pbuk0ciR8bicQ/viewform?usp=header";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -102,14 +103,14 @@ export const Navbar = memo(({ onDemoClick }: { onDemoClick?: () => void }) => {
             {isDarkMode ? <Sun size={20} className="text-wa-teal" /> : <Moon size={20} className="text-wa-text-secondary" />}
           </button>
 
-          <button 
-            onClick={() => {
-              onDemoClick?.();
-              trackCtaClick('request_demo_nav', 'navigation');
-            }}
+          <a 
+            href={GOOGLE_FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackCtaClick('request_demo_nav', 'navigation')}
             className="btn-primary !py-2.5 !px-8 text-xs font-black uppercase tracking-wider shadow-lg shadow-wa-teal/10">
             Request Demo
-          </button>
+          </a>
         </div>
 
         <div className="flex items-center gap-4 md:hidden">
@@ -136,13 +137,15 @@ export const Navbar = memo(({ onDemoClick }: { onDemoClick?: () => void }) => {
         <div className="md:hidden bg-white dark:bg-wa-panel border-t border-wa-border dark:border-wa-dark-bg absolute top-full left-0 right-0 shadow-2xl py-8 px-6 flex flex-col gap-6 animate-reveal">
           <Link to="/#features" onClick={() => { setIsMenuOpen(false); trackCtaClick('features', 'mobile_menu'); }} className="text-xl font-bold dark:text-white">What it Does</Link>
           <Link to="/download" onClick={() => { setIsMenuOpen(false); trackCtaClick('download', 'mobile_menu'); }} className="text-xl font-bold dark:text-white">Downloads</Link>
-          <button 
+          <a 
+            href={GOOGLE_FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => {
               setIsMenuOpen(false);
-              onDemoClick?.();
               trackCtaClick('request_demo', 'mobile_menu');
             }}
-            className="btn-primary mt-6 !py-4 text-center">Request Demo</button>
+            className="btn-primary mt-6 !py-4 text-center">Request Demo</a>
         </div>
       )}
     </nav>
