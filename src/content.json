@@ -80,6 +80,138 @@
       }
     ]
   },
+  "faq": {
+    "title": "Questions Buyers Search Before They Automate Support.",
+    "subtitle": "These answers target high-intent searches around WhatsApp automation, AI email replies, social media DMs, shared inboxes, omnichannel support, and privacy for local businesses.",
+    "items": [
+      {
+        "keyword": "WhatsApp Automation",
+        "question": "Can AI answer WhatsApp messages automatically?",
+        "answer": "Yes. AI can handle first replies, FAQ answers, price questions, appointment requests, and after-hours messages on WhatsApp when it is trained on real business information and has a clear fallback for unusual cases.",
+        "suggested": "AIConsumerAgent is built for that exact workflow: it learns from your FAQ or price list and handles both WhatsApp and Email from one desktop app."
+      },
+      {
+        "keyword": "Multi-User WhatsApp",
+        "question": "Can multiple team members use one WhatsApp Business number?",
+        "answer": "Yes, but the free app becomes limiting as message volume grows. Small teams can link a few devices, while busier teams usually need a shared inbox so ownership, history, and handoffs stay clear.",
+        "suggested": "AIConsumerAgent gives local businesses one inbox for WhatsApp and Email, so leads and support chats do not get stuck on one phone."
+      },
+      {
+        "keyword": "Shared Inbox",
+        "question": "What is a WhatsApp shared inbox?",
+        "answer": "A WhatsApp shared inbox is a team workspace where incoming customer chats appear in one place instead of living on a single device. It helps prevent duplicate replies, missed messages, and messy handoffs between staff.",
+        "suggested": "AIConsumerAgent turns WhatsApp and Email into one simple inbox designed for local shops, clinics, salons, and service businesses."
+      },
+      {
+        "keyword": "AI Email Replies",
+        "question": "Can AI answer customer emails automatically too?",
+        "answer": "Yes. Modern support tools can read common email questions, draft or send replies, and escalate unusual cases to a human. This works especially well for repetitive enquiries about pricing, availability, bookings, and follow-ups.",
+        "suggested": "AIConsumerAgent covers both WhatsApp and Email, so customers get the same fast answers whichever channel they choose."
+      },
+      {
+        "keyword": "Safe Automation",
+        "question": "Is WhatsApp automation safe for small businesses?",
+        "answer": "It can be, if the setup respects platform rules, keeps response quality high, and avoids spammy behavior. The safest automation focuses on helpful inbound support, accurate answers, and controlled workflows instead of aggressive bulk messaging.",
+        "suggested": "AIConsumerAgent is positioned for support and sales conversations, with privacy-first local processing and settings built for real business use."
+      },
+      {
+        "keyword": "Omnichannel Support",
+        "question": "What is omnichannel customer support?",
+        "answer": "Omnichannel customer support means customers can contact your business through different channels like WhatsApp and Email while your team keeps the context in one place. The goal is a seamless experience instead of fragmented conversations.",
+        "suggested": "AIConsumerAgent gives small businesses a practical omnichannel setup without the cost and complexity of a full enterprise help desk."
+      },
+      {
+        "keyword": "Bookings And Pricing",
+        "question": "Can AI answer pricing questions and book appointments for local businesses?",
+        "answer": "Yes. This is one of the best use cases for support automation in clinics, salons, trades, and other local businesses. AI works best when questions repeat often and the business can provide clear service, pricing, and scheduling rules.",
+        "suggested": "AIConsumerAgent is built around that pattern, with business-specific knowledge upload and ready-to-use flows for appointment-based teams."
+      },
+      {
+        "keyword": "Private AI Support",
+        "question": "How do I automate customer support without sending customer data to the cloud?",
+        "answer": "You need a setup that runs locally or gives you strict control over where conversations are processed and stored. This matters most for businesses that handle sensitive customer details or simply want tighter privacy.",
+        "suggested": "AIConsumerAgent is designed to stay on your computer, which makes it a strong fit for privacy-conscious local businesses."
+      },
+      {
+        "keyword": "Instagram DM Automation",
+        "question": "Can AI reply to Instagram DMs for a small business?",
+        "answer": "Yes. AI can help answer common Instagram Direct Message questions about products, prices, availability, bookings, order status, and store hours when the business account is connected through a supported inbox or messaging workflow.",
+        "suggested": "AIConsumerAgent is being built as a multi-channel assistant, so Instagram DMs can fit the same AI support flow as WhatsApp and Email as social channels are connected."
+      },
+      {
+        "keyword": "Facebook Messenger",
+        "question": "Can AI answer Facebook Messenger questions from customers?",
+        "answer": "Yes. Messenger automation is useful for customers who contact a business through a Facebook Page after seeing posts, ads, marketplace listings, or recommendations. The best setup answers routine questions quickly and hands complex cases to a person.",
+        "suggested": "AIConsumerAgent can position Messenger as another customer channel inside the same support workflow, helping teams avoid separate inboxes for every platform."
+      },
+      {
+        "keyword": "Social Media Inbox",
+        "question": "What is a social media inbox for customer support?",
+        "answer": "A social media inbox brings messages from platforms like Instagram, Facebook, and other social channels into one workspace. It helps a business reply faster, assign conversations, and stop customer questions from being buried under notifications.",
+        "suggested": "AIConsumerAgent is designed around one operational inbox, making it a practical product direction for businesses that want WhatsApp, Email, and social messages handled together."
+      },
+      {
+        "keyword": "Unified Inbox",
+        "question": "Can one AI inbox manage WhatsApp, Email, Instagram, and Facebook?",
+        "answer": "Yes. A unified AI inbox can collect messages from multiple channels, apply business knowledge, suggest or send replies, and keep customer context in one place. This is the core idea behind omnichannel customer support.",
+        "suggested": "AIConsumerAgent already focuses on WhatsApp and Email and is structured for the broader multi-channel support path local businesses need."
+      },
+      {
+        "keyword": "Social Lead Capture",
+        "question": "Can AI capture leads from social media messages?",
+        "answer": "Yes. AI can qualify leads from DMs by asking for the customer's name, need, budget, location, preferred time, or service type. It can then summarize the lead and push it into a follow-up workflow or CRM.",
+        "suggested": "AIConsumerAgent works as both support and CRM software, so social leads can be treated as customer conversations instead of random inbox notifications."
+      },
+      {
+        "keyword": "Ad Response Automation",
+        "question": "Can AI answer questions from Instagram or Facebook ads?",
+        "answer": "Yes. Many buyers click an ad and then ask basic questions in DMs before they convert. AI can respond with pricing, service details, booking links, product availability, or a next-step question while the lead is still warm.",
+        "suggested": "AIConsumerAgent is a strong fit for businesses that run social ads and need fast, consistent replies across ads, WhatsApp, Email, and future social inbox channels."
+      },
+      {
+        "keyword": "Gmail And Outlook",
+        "question": "Can AI manage Gmail or Outlook customer emails with messaging apps?",
+        "answer": "Yes. An AI support workflow can connect email accounts like Gmail or Outlook alongside messaging apps, then organize customer threads, draft replies, and keep the full conversation history available to the team.",
+        "suggested": "AIConsumerAgent supports the Email side of this workflow and pairs it with WhatsApp so businesses do not split customer context between an inbox and a phone."
+      },
+      {
+        "keyword": "Missed Messages",
+        "question": "How do small businesses stop missing messages across WhatsApp, Email, and social media?",
+        "answer": "The most reliable approach is to centralize incoming messages, automate first responses, set human handoff rules, and review unresolved conversations daily. This reduces missed leads caused by tab switching and after-hours delays.",
+        "suggested": "AIConsumerAgent is built to reduce missed customer queries with one inbox, automatic replies, and daily reporting for the owner."
+      },
+      {
+        "keyword": "Channel Strategy",
+        "question": "Which customer support channels should a local business automate first?",
+        "answer": "Start with the channels where customers already ask buying questions most often. For many local businesses, that means WhatsApp, Email, Instagram DMs, Facebook Messenger, and eventually website chat or SMS if those channels drive leads.",
+        "suggested": "AIConsumerAgent starts with the highest-signal channels for local businesses and can grow into a wider support stack as new channels are added."
+      },
+      {
+        "keyword": "Customer History",
+        "question": "Can AI keep customer history across WhatsApp, Email, and social DMs?",
+        "answer": "Yes, if the channels are connected to the same inbox or CRM. Cross-channel customer history lets the business understand previous questions, bookings, complaints, and follow-ups without asking the customer to repeat themselves.",
+        "suggested": "AIConsumerAgent's support plus CRM positioning is meant to preserve customer context as conversations move across WhatsApp, Email, and future social channels."
+      },
+      {
+        "keyword": "Human Handoff",
+        "question": "When should AI hand a customer conversation to a human?",
+        "answer": "AI should hand off when a customer is angry, asks for a discount exception, shares sensitive information, requests a custom quote, reports a serious issue, or asks something outside the approved business knowledge.",
+        "suggested": "AIConsumerAgent fits this model by using business-specific knowledge for routine replies while keeping the owner or team in control of important conversations."
+      },
+      {
+        "keyword": "Follow-Up Automation",
+        "question": "Can AI send follow-ups after a WhatsApp, Email, or social media enquiry?",
+        "answer": "Yes. Follow-up automation can remind customers about appointments, ask for missing details, send estimates, confirm bookings, or re-engage leads who stopped replying. It works best when follow-ups are helpful and relevant.",
+        "suggested": "AIConsumerAgent is designed for support and sales workflows, so follow-ups can become part of the same customer journey instead of manual chasing."
+      },
+      {
+        "keyword": "Safe Social Automation",
+        "question": "Is social media message automation safe for business accounts?",
+        "answer": "It can be safe when it follows platform rules, responds to real customer enquiries, avoids spam, and gives people a clear path to human help. Businesses should use automation for service quality, not aggressive mass messaging.",
+        "suggested": "AIConsumerAgent's best SEO position is privacy-first, support-first automation across customer channels, which is the safer long-term use case for local businesses."
+      }
+    ]
+  },
   "pricing": {
     "title": "Grow with",
     "titleAccent": "Ease.",
@@ -99,7 +231,7 @@
     ]
   },
   "footer": {
-    "description": "The simple way to automate your customer support and sales across WhatsApp and Email. Private, secure, and always on for your business.",
+    "description": "The simple way to automate your customer support and sales across WhatsApp, Email, and future social media channels. Private, secure, and always on for your business.",
     "copyright": "© 2026 AIConsumerAgent Software.",
     "tagline": "The Multi-Channel AI Assistant for Local Business Owners"
   }

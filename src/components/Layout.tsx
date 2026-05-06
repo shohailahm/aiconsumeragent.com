@@ -1,21 +1,7 @@
 import React, { useState, useEffect, memo } from 'react'
 import {
-  MessageCircle,
-  ShieldCheck,
-  Zap,
-  Globe,
-  Clock,
-  Smartphone,
-  ChevronRight,
   Menu,
   X,
-  Play,
-  Mail,
-  CheckCircle2,
-  Lock,
-  DollarSign,
-  Cpu,
-  Heart,
   Moon,
   Sun
 } from 'lucide-react'
@@ -27,7 +13,7 @@ export const Container = ({ children, className = "" }: { children: React.ReactN
 )
 
 export const Section = ({ id, children, className = "", title, subtitle }: { id?: string, children: React.ReactNode, className?: string, title?: string, subtitle?: string }) => (
-  <section id={id} className={`py-16 md:py-24 ${className}`}>
+  <section id={id} className={`py-16 md:py-24 scroll-mt-28 ${className}`}>
     <Container>
       {(title || subtitle) && (
         <div className="mb-16 animate-reveal">
@@ -93,6 +79,7 @@ export const Navbar = memo(() => {
 
         <div className="hidden md:flex items-center gap-8">
           <Link to="/#features" onClick={() => trackCtaClick('features', 'navigation')} className="nav-link">Features</Link>
+          <Link to="/faq" onClick={() => trackCtaClick('faq_page', 'navigation')} className="nav-link">Q&amp;A</Link>
           <Link to="/download" onClick={() => trackCtaClick('download', 'navigation')} className="nav-link">Download</Link>
           
           <button 
@@ -136,6 +123,7 @@ export const Navbar = memo(() => {
       {isMenuOpen && (
         <div className="md:hidden bg-white dark:bg-wa-panel border-t border-wa-border dark:border-wa-dark-bg absolute top-full left-0 right-0 shadow-2xl py-8 px-6 flex flex-col gap-6 animate-reveal">
           <Link to="/#features" onClick={() => { setIsMenuOpen(false); trackCtaClick('features', 'mobile_menu'); }} className="text-xl font-bold dark:text-white">What it Does</Link>
+          <Link to="/faq" onClick={() => { setIsMenuOpen(false); trackCtaClick('faq_page', 'mobile_menu'); }} className="text-xl font-bold dark:text-white">Q&amp;A</Link>
           <Link to="/download" onClick={() => { setIsMenuOpen(false); trackCtaClick('download', 'mobile_menu'); }} className="text-xl font-bold dark:text-white">Downloads</Link>
           <a 
             href={GOOGLE_FORM_URL}

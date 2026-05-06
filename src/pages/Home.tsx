@@ -1,10 +1,8 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {
-  MessageCircle,
   ShieldCheck,
   Zap,
   Globe,
-  Clock,
   Smartphone,
   ChevronRight,
   Play,
@@ -17,6 +15,7 @@ import { Link } from 'react-router-dom'
 import content from '../content.json'
 import { trackCtaClick } from '../utils/analytics'
 import { Container, Section } from '../components/Layout'
+import { FaqCardGrid, FaqConversionPanel, FaqItem, FaqSchemaScript } from '../components/FaqContent'
 
 const FeatureGrid = ({ items }: { items: any[] }) => {
   const icons = [<Lock />, <Mail />, <Zap />, <Smartphone />, <CheckCircle2 />, <Play />];
@@ -42,17 +41,12 @@ const FeatureGrid = ({ items }: { items: any[] }) => {
 
 const Home = () => {
   const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSefOmK8syv6sBmQ6qBNha1STbfD1v22Ke8y4Pbuk0ciR8bicQ/viewform?usp=header";
-  useEffect(() => {
-    // Handle hash scrolling if present
-    if (window.location.hash) {
-      const id = window.location.hash.substring(1);
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, []);
+  const homepageFaqItems = (content.faq.items as FaqItem[]).slice(0, 12);
 
   return (
     <div className="animate-reveal">
+      <FaqSchemaScript items={homepageFaqItems} />
+
       {/* Hero Section */}
       <section className="relative pt-40 pb-24 overflow-hidden bg-gradient-to-br from-wa-light-bg via-white to-wa-light-bg dark:from-wa-dark-bg dark:via-wa-panel dark:to-wa-dark-bg">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-wa-teal opacity-[0.03] rounded-full blur-3xl -translate-y-1/3 translate-x-1/4 animate-float-slow"></div>
@@ -210,6 +204,32 @@ const Home = () => {
             );
           })}
         </div>
+      </Section>
+
+      {/* FAQ */}
+      <Section
+        id="faq"
+        className="bg-wa-light-bg dark:bg-wa-dark-bg"
+        title={content.faq.title}
+        subtitle={content.faq.subtitle}
+      >
+        <FaqCardGrid items={homepageFaqItems} />
+
+        <div className="mt-10 flex justify-center animate-reveal">
+          <Link
+            to="/faq"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-2xl border-2 border-wa-teal/20 text-wa-dark-bg dark:text-white font-black uppercase tracking-[0.16em] text-xs hover:border-wa-teal hover:text-wa-teal transition-all"
+            onClick={() => trackCtaClick('read_all_faq', 'faq')}
+          >
+            Read All Q&amp;A <ChevronRight size={18} aria-hidden="true" />
+          </Link>
+        </div>
+
+        <FaqConversionPanel
+          context="Suggested Next Step"
+          title="Try the same answers with your own price list, FAQs, and business tone."
+          description="If these are the exact questions your customers ask every day, AIConsumerAgent is the product built to answer them across WhatsApp, Email, and future social channels without adding another complicated support stack."
+        />
       </Section>
 
       {/* Pricing */}

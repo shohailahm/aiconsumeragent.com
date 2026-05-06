@@ -1,9 +1,5 @@
 import React from 'react'
 import {
-  ShieldCheck,
-  Globe,
-  Play,
-  Cpu,
   Heart
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
@@ -32,8 +28,10 @@ const Footer = () => {
              <h5 className="text-[10px] font-black uppercase tracking-[.3em] text-wa-teal mb-8">Product</h5>
              <ul className="space-y-4 text-lg font-bold text-wa-text-muted">
                <li><Link to="/#features" onClick={() => trackCtaClick('features', 'footer')} className="hover:text-wa-teal transition-colors">Capability</Link></li>
+               <li><Link to="/#faq" onClick={() => trackCtaClick('faq', 'footer')} className="hover:text-wa-teal transition-colors">Questions</Link></li>
+               <li><Link to="/faq" onClick={() => trackCtaClick('faq_page', 'footer')} className="hover:text-wa-teal transition-colors">Q&amp;A Page</Link></li>
                <li><Link to="/download" onClick={() => trackCtaClick('download', 'footer')} className="hover:text-wa-teal transition-colors">Downloads</Link></li>
-               <li><a href="#verticals" onClick={() => trackCtaClick('verticals', 'footer')} className="hover:text-wa-teal transition-colors">Verticals</a></li>
+               <li><Link to="/#verticals" onClick={() => trackCtaClick('verticals', 'footer')} className="hover:text-wa-teal transition-colors">Verticals</Link></li>
              </ul>
           </div>
           
